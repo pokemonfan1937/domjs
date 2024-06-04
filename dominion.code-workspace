@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Downloads/phaser3-tutorial-src"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "dominion"
+	}
+}
