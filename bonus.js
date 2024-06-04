@@ -13,9 +13,9 @@ export var actionp2 = 1;
 
 export function resetvalues(){
     if (player == 1){
-        coinp1 = 1000000;
+        coinp1 = 0;
         potionp1 = 0;
-        buyp1 = 1000;
+        buyp1 = 1;
         actionp1 = 1;
     }
     else if (player == 2){
