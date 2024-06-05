@@ -1,5 +1,5 @@
 
-import * as cardtext from './cardtext.js';
+import * as cardtext from './cardcollection.js';
 import {pile, createPile, frompiletohere} from './pile.js';
 import {createKingdom} from './kingdom.js';
 import {cardarea, fromheretothere} from './cardarea.js';
@@ -8,7 +8,6 @@ import {cards} from './cards.js';
 import {hand} from './hand.js';
 import {sortPiles , sort} from './sort.js';
 import { discard } from './discardpile.js';
-import {checktype, checkcost} from './card.js';
 import {resetvalues, retrievecoinp1, actionsnolog, potionsnolog, retrievebuyp1, retrieveactionp1, buysnolog, coinsnolog, retrievecoinp2, retrievebuyp2, retrieveactionp2, retrievepotionp1, retrievepotionp2} from './bonus.js';
 import {play} from './play.js';
 import { gaintodiscard } from './gain.js';
@@ -70,7 +69,7 @@ export function hideallbuttons(){
 
 export function showbuttonsoftypearea(type, area){
     for (let i = 0; i < area.count(); i++){
-        if ((document.getElementById(area.id(i)) != null) && (checktype(area.cards[i], type) == true)){
+        if ((document.getElementById(area.id(i)) != null) && (area.card(i).checktype(type) == true)){
             if (document.getElementById(area.id(i)).textContent != "???"){
                 document.getElementById(area.id(i)).removeAttribute("hidden")
             }
@@ -91,7 +90,7 @@ export function showsupply(type, cost){
     else if (cost == null){
         for (let i = 0; i < piles.length; i++){
             if (piles[i].count() != 0){
-                if (checktype(piles[i].cards[0], type)){
+                if (piles[i].card().checktype(type)){
                     document.getElementById(piles[i].id()).hidden = false;
                 }
             }
@@ -100,7 +99,7 @@ export function showsupply(type, cost){
     else if (type == null){
         for (let i = 0; i < piles.length; i++){
             if (piles[i].count() != 0){
-                if (checkcost(piles[i].cards[0], cost)){
+                if (piles[i].card().checkcost(cost)){
                     document.getElementById(piles[i].id()).hidden = false;
                 }
             }
@@ -109,7 +108,7 @@ export function showsupply(type, cost){
     else{
         for (let i = 0; i < piles.length; i++){
             if (piles[i].count() != 0){
-                if (checktype(piles[i].cards[0], type) && checkcost(piles[i].cards[0], cost)){
+                if (piles[i].card().checktype(type) && piles[i].card().checkcost(cost)){
                     document.getElementById(piles[i].id()).hidden = false;
                 }
             }

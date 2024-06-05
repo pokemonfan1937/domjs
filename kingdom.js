@@ -1,5 +1,5 @@
 import {pile, createPile} from './pile.js';
-import * as cardtext from './cardtext.js';
+import * as cardtext from './cardcollection.js';
 
 export function createKingdom(allcards, prior, piles){
     let x;

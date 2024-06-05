@@ -8,7 +8,7 @@ export class cardarea {
     id(i = 0){
         return this.cards[i].id;
     }
-    cardtext(i = 0){
+    card(i = 0){
         return this.cards[i];
     }
     name(i = 0){
